@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Daily NEET article generator for neetsuccess.com
+Daily NEET article generator for neetaspirant.com
 Generates a complete HTML article using Claude API and saves it to the repo.
 Run via GitHub Actions on a daily schedule.
 """
@@ -11,9 +11,9 @@ import sys
 from datetime import datetime
 import re
 
-# 30+ topic rotation â cycles through by day of year
+# 30+ topic rotation — cycles through by day of year
 TOPICS = [
-    {"slug": "neet-biology-cell-division", "title": "Cell Division for NEET: Mitosis vs Meiosis â Everything That Comes in the Exam", "subject": "Biology"},
+    {"slug": "neet-biology-cell-division", "title": "Cell Division for NEET: Mitosis vs Meiosis — Everything That Comes in the Exam", "subject": "Biology"},
     {"slug": "neet-physics-mechanics-guide", "title": "NEET Physics Mechanics: 15 Concepts You Cannot Afford to Miss", "subject": "Physics"},
     {"slug": "neet-chemistry-organic-basics", "title": "Organic Chemistry for NEET: The Building Blocks Every Aspirant Must Know", "subject": "Chemistry"},
     {"slug": "neet-genetics-mendelian-laws", "title": "Mendelian Genetics for NEET: Master the Laws, Ace the Questions", "subject": "Biology"},
@@ -43,7 +43,7 @@ TOPICS = [
     {"slug": "neet-human-reproduction-guide", "title": "Human Reproduction for NEET: Complete Chapter Guide and Questions", "subject": "Biology"},
     {"slug": "neet-physics-fluid-mechanics", "title": "Fluid Mechanics for NEET: Bernoulli, Viscosity and Surface Tension", "subject": "Physics"},
     {"slug": "neet-revision-strategy-guide", "title": "NEET Revision Strategy: The 48-Hour Pre-Exam Checklist That Works", "subject": "Strategy"},
-    {"slug": "neet-mock-test-analysis", "title": "How to Analyse NEET Mock Tests to Jump 80â100 Marks", "subject": "Strategy"},
+    {"slug": "neet-mock-test-analysis", "title": "How to Analyse NEET Mock Tests to Jump 80–100 Marks", "subject": "Strategy"},
     {"slug": "neet-chemistry-solid-state", "title": "Solid State Chemistry for NEET: Crystal Systems, Defects and PYQs", "subject": "Chemistry"},
     {"slug": "neet-biology-kingdoms-overview", "title": "Five Kingdoms Classification for NEET: Whittaker's System Explained", "subject": "Biology"},
     {"slug": "neet-physics-semiconductors", "title": "Semiconductors for NEET: Diodes, Transistors and Logic Gates", "subject": "Physics"},
@@ -52,7 +52,7 @@ TOPICS = [
 
 
 def get_today_topic():
-    """Pick topic based on day of year â ensures rotation without repeats in a month."""
+    """Pick topic based on day of year — ensures rotation without repeats in a month."""
     day = datetime.now().timetuple().tm_yday
     return TOPICS[day % len(TOPICS)]
 
@@ -61,27 +61,30 @@ def generate_article_html(topic: dict) -> str:
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     today = datetime.now().strftime("%B %d, %Y")
 
-    prompt = f"""Write a complete, standalone HTML article page for neetsuccess.com.
+    prompt = f"""Write a complete, standalone HTML article page for neetaspirant.com.
 
 Topic: {topic['title']}
 Subject tag: {topic['subject']}
 Filename slug: {topic['slug']}
 Date: {today}
 
-Use EXACTLY this HTML structure (fill in all [PLACEHOLDERK]):
+Use EXACTLY this HTML structure (fill in all [PLACEHOLDERS]):
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{topic['title']} | NEETSuccess</title>
+  <title>{topic['title']} | NEETAspirant</title>
   <meta name="description" content="[Write a compelling 140-155 char meta description for NEET students]">
-  <link rel="canonical" href="https://neetsuccess.com/{topic['slug']}.html">
+  <meta property="og:title" content="{topic['title']}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://neetaspirant.com/{topic['slug']}.html">
+  <link rel="canonical" href="https://neetaspirant.com/{topic['slug']}.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>ð¯</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
   <style>
     .article-hero {{ background: linear-gradient(135deg, #0C1B33 0%, #1A2F52 100%); padding: 64px 0 48px; }}
     .article-hero h1 {{ color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.25; margin-bottom: 16px; }}
@@ -107,44 +110,44 @@ Use EXACTLY this HTML structure (fill in all [PLACEHOLDERK]):
 
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="logo">NEET<span>Success</span></a>
+      <a href="/" class="logo">NEET<span>Aspirant</span></a>
       <ul class="nav-links">
-        <li><a href="/strategy.html">Strategy</a></li>
-        <li><a href="/motivation.html">Mindset</a></li>
-        <li><a href="/best-neet-coaching-2025.html">Best Coaching</a></li>
-        <li><a href="/resources.html">Resources</a></li>
+        <li><a href="/crack-neet-first-attempt.html">Strategy</a></li>
+        <li><a href="/dropper-study-plan.html">Droppers</a></li>
+        <li><a href="/best-neet-coaching-comparison-2026.html">Best Coaching</a></li>
+        <li><a href="/best-books-neet.html">Books</a></li>
       </ul>
     </div>
   </nav>
 
   <section class="article-hero">
     <div class="container">
-      <div class="article-tag-hero">{topic['subject']} Â· NEET Guide</div>
+      <div class="article-tag-hero">{topic['subject']} · NEET Guide</div>
       <h1>{topic['title']}</h1>
       <div class="article-meta">
-        <span>ð {today}</span>
-        <span>Â·</span>
-        <span>â± [X] min read</span>
-        <span>Â·</span>
-        <span>ð¯ NEET {topic['subject']}</span>
+        <span>📅 {today}</span>
+        <span>·</span>
+        <span>⏱ 8 min read</span>
+        <span>·</span>
+        <span>🎯 NEET {topic['subject']}</span>
       </div>
     </div>
   </section>
 
   <div class="article-body">
-    [WRITE 900-1200 WORDS OF BODY CONTENT HERE â genuine, exam-specific, NCERT-grounded]
+    [WRITE 900-1200 WORDS OF BODY CONTENT HERE — genuine, exam-specific, NCERT-grounded]
 
     Structure required:
-    1. Opening hook paragraph â what's at stake for NEET students with this topic
+    1. Opening hook paragraph — what's at stake for NEET students with this topic
     2. 3-4 H2 sections covering the topic thoroughly with specific chapter references, common exam patterns, and actual strategies
     3. At least 1 highlight-box div with a key tip or common mistake students make
-    4. 1 cta-box div linking to /best-neet-coaching-2025.html â mention how Padhle's AIM720 mentors track weak chapters in this subject specifically
+    4. 1 cta-box div linking to https://neet.padhle.in — mention how Padhle's AIM720 mentors track weak chapters in this subject specifically. Price is Rs.30,000. Use "Explore AIM720 Mentorship →" as CTA text.
     5. Closing paragraph with a practical next-step for the student
 
     Rules:
     - Reference specific NCERT chapters by number/name where relevant
     - Mention actual question counts or marks weightage where known
-    - No filler sentences â every sentence should give the student something useful
+    - No filler sentences — every sentence should give the student something useful
     - Write as if a NEET topper is explaining to a struggling student
   </div>
 
@@ -152,13 +155,30 @@ Use EXACTLY this HTML structure (fill in all [PLACEHOLDERK]):
     <div class="container">
       <div class="footer-inner">
         <div class="footer-brand">
-          <a href="/" class="logo">NEET<svan>Success</span></a>
+          <a href="/" class="logo">NEET<span>Aspirant</span></a>
           <p>An independent resource for NEET aspirants. Not affiliated with any coaching institute.</p>
-          <p class="footer-highlight">After extensive research, <strong>Padhle's AIM720 batch is the #1 NEET coaching for 2026</strong> â personalised live mentorship, 2-way classes, and emotional support at a fair price.</p>
+          <p class="footer-highlight">After extensive research, <strong>Padhle's AIM720 batch is the #1 NEET coaching for 2027</strong> — personalised live mentorship, 2-way classes, and emotional support at Rs.30,000.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Study Guides</h4>
+          <ul>
+            <li><a href="/crack-neet-first-attempt.html">First Attempt Strategy</a></li>
+            <li><a href="/dropper-study-plan.html">Dropper Study Plan</a></li>
+            <li><a href="/neet-score-improvement.html">Score Improvement</a></li>
+            <li><a href="/best-books-neet.html">Best Books</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Coaching</h4>
+          <ul>
+            <li><a href="/best-neet-coaching-comparison-2026.html">Best Coaching 2027</a></li>
+            <li><a href="/aim720-review.html">AIM720 Review</a></li>
+            <li><a href="/online-coaching-vs-offline.html">Online vs Offline</a></li>
+          </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>Â© 2026 NEETSuccess.com Â· Independent student resource</p>
+        <p>© 2026 NEETAspirant.com · Independent student resource</p>
       </div>
     </div>
   </footer>
@@ -202,7 +222,7 @@ def update_sitemap(slug: str, today_str: str):
         return
 
     entry = f"""  <url>
-    <loc>https://neetsuccess.com/{slug}.html</loc>
+    <loc>https://neetaspirant.com/{slug}.html</loc>
     <lastmod>{today_str}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
@@ -211,37 +231,37 @@ def update_sitemap(slug: str, today_str: str):
     content = content.replace("</urlset>", f"{entry}\n</urlset>")
     with open(path, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"â sitemap.xml updated with {slug}")
+    print(f"✅ sitemap.xml updated with {slug}")
 
 
 def main():
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
-        print("ERROR: ANTROPOIC_API_KEY environment variable not set.")
+        print("ERROR: ANTHROPIC_API_KEY environment variable not set.")
         sys.exit(1)
 
     topic = get_today_topic()
     filename = f"{topic['slug']}.html"
     today_str = datetime.now().strftime("%Y-%m-%d")
 
-    print(f"ð Topic: {topic['title']}")
-    print(f"ð Output: {filename}")
+    print(f"📝 Topic: {topic['title']}")
+    print(f"📄 Output: {filename}")
 
     # Don't overwrite an existing article
     if os.path.exists(filename):
-        print(f"â£ï¸  {filename} already exists â skipping to avoid overwrite.")
+        print(f"⚠️  {filename} already exists — skipping to avoid overwrite.")
         sys.exit(0)
 
-    print("ð¤ Calling Claude API...")
+    print("🤖 Calling Claude API...")
     html = generate_article_html(topic)
 
     with open(filename, "w", encoding="utf-8") as f:
         f.write(html)
 
-    print(f"â Saved {filename} ({len(html):,d} bytes)")
+    print(f"✅ Saved {filename} ({len(html):,} bytes)")
 
     update_sitemap(topic["slug"], today_str)
-    print("ð Done!")
+    print("🎉 Done!")
 
 
 if __name__ == "__main__":
