@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrostatics for NEET: From Coulomb's Law to Capacitors | NEETAspirant</title>
+  <meta name="description" content="Master electrostatics for NEET: Coulomb's law, electric field, potential, and capacitors with NCERT shortcuts. Solve 40+ marks confidently.">
+  <meta property="og:title" content="Electrostatics for NEET: From Coulomb's Law to Capacitors">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://neetaspirant.com/neet-physics-electrostatics.html">
+  <link rel="canonical" href="https://neetaspirant.com/neet-physics-electrostatics.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  <style>
+    .article-hero { background: linear-gradient(135deg, #0C1B33 0%, #1A2F52 100%); padding: 64px 0 48px; }
+    .article-hero h1 { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+    .article-meta span { margin-right: 20px; }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 56px 24px; }
+    .article-body h2 { font-size: 1.4rem; font-weight: 700; color: #0C1B33; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #E8E9ED; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: #1A2F52; margin: 28px 0 10px; }
+    .article-body p { color: #3a4257; line-height: 1.8; margin-bottom: 16px; font-size: 1.02rem; }
+    .article-body ul, .article-body ol { padding-left: 24px; margin-bottom: 20px; }
+    .article-body li { color: #3a4257; line-height: 1.8; margin-bottom: 6px; font-size: 1rem; }
+    .highlight-box { background: #FFF6E0; border-left: 4px solid #E8A020; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .highlight-box strong { color: #b8860b; display: block; margin-bottom: 6px; }
+    .highlight-box p { margin: 0; color: #5a4a00; font-size: 0.95rem; }
+    .cta-box { background: linear-gradient(135deg, #0C1B33, #1A2F52); color: #fff; padding: 32px; border-radius: 12px; margin: 40px 0; text-align: center; }
+    .cta-box h3 { color: #E8A020; margin-bottom: 10px; font-size: 1.1rem; }
+    .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem; }
+    .cta-box a { display: inline-block; background: #E8A020; color: #0C1B33; padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .article-tag-hero { display: inline-block; background: rgba(232,160,32,0.15); color: #E8A020; border: 1px solid rgba(232,160,32,0.3); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .nav { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .logo { font-size: 1.4rem; font-weight: 700; color: #0C1B33; text-decoration: none; }
+    .logo span { color: #E8A020; }
+    .nav-links { display: flex; list-style: none; gap: 40px; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: #3a4257; font-size: 0.95rem; font-weight: 500; }
+    .footer { background: #0C1B33; color: #fff; padding: 56px 0 32px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+    .footer-brand p { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin: 12px 0; }
+    .footer-highlight { background: rgba(232,160,32,0.1); padding: 12px; border-left: 2px solid #E8A020; margin-top: 20px !important; }
+    .footer-links h4 { color: #E8A020; font-size: 0.95rem; margin-bottom: 16px; }
+    .footer-links ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.85rem; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; padding: 0 24px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">NEET<span>Aspirant</span></a>
+      <ul class="nav-links">
+        <li><a href="/crack-neet-first-attempt.html">Strategy</a></li>
+        <li><a href="/dropper-study-plan.html">Droppers</a></li>
+        <li><a href="/best-neet-coaching-comparison-2026.html">Best Coaching</a></li>
+        <li><a href="/best-books-neet.html">Books</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-tag-hero">Physics · NEET Guide</div>
+      <h1>Electrostatics for NEET: From Coulomb's Law to Capacitors</h1>
+      <div class="article-meta">
+        <span>📅 July 01, 2026</span>
+        <span>·</span>
+        <span>⏱ 8 min read</span>
+        <span>·</span>
+        <span>🎯 NEET Physics</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-body">
+    <p>Electrostatics consistently accounts for 35–45 marks in NEET physics, spread across 5–7 questions. Yet most students treat it as a memorization chapter rather than a concept-based one. The reality: electrostatics is entirely logical. Once you understand why charges behave the way they do, every formula becomes intuitive, and even unfamiliar multi-concept questions become solvable. This guide walks you through the exact framework NCERT uses—the same framework that toppers use to solve electrostatics problems in under 3 minutes each.</p>
+
+    <h2>Coulomb's Law: The Foundation Everything Rests On</h2>
+    <p>Coulomb's law is stated in NCERT Chapter 1 (Electric Charges and Fields), and it's the single most important concept in electrostatics. The force between two point charges is: F = k(q₁q₂)/r². Here's what NEET expects you to understand that most students miss:</p>
+    <p>First, the constant k = 9 × 10⁹ N·m²/C² is not random. It comes from SI units and relates directly to the permittivity of free space (ε₀ = 8.85 × 10⁻¹² F/m). NEET questions sometimes ask about relative permittivity or dielectric constants, and they expect you to manipulate this relationship. Practice problems where you're given k in different forms.</p>
+    <p>Second, understand what r actually represents. It's the center-to-center distance between two point charges. When NEET gives you extended objects or spheres, they expect you to apply Coulomb's law only to point charges or assume all charge concentrates at the center for conducting/uniformly charged spheres. This distinction appears in nearly 2–3 questions per exam.</p>
+    <p>Third, force is a vector. The direction matters as much as the magnitude. When three or more charges are present (which happens in 30% of electrostatics questions), you must resolve forces into components and add them vectorially. The most common mistake: adding magnitudes instead of adding forces as vectors. Practice this until it's automatic.</p>
+    <p>A practical NEET pattern: given two charges and asked to find the position where a third charge experiences zero net force. Solution framework: (1) Set up the force balance equation, (2) Recognize that charges must be collinear for zero net force, (3) Place the test charge on the line joining the charges, (4) Solve for position using the condition F₁ = F₂ and opposite directions.</p>
+
+    <h2>Electric Field: The Language of Force Without Contact</h2>
+    <p>NCERT Chapter 1 introduces electric field as E = F/q or E = kQ/r² for a point charge. Most students memorize this. Toppers understand that electric field answers a critical question: "What force will a unit positive charge experience at this point?" This mindset shift makes everything else click into place.</p>
+    <p>For continuous charge distributions (lines, surfaces, volumes), NEET requires you to set up and evaluate integrals. Don't panic—NEET typically tests only three standard configurations: (1) infinite line charge, (2) infinite plane, (3) uniformly charged sphere. NCERT Chapter 1 walks through the line charge derivation step-by-step. Master that derivation because it teaches the method. The result: E = λ/(2πε₀r) for a line charge. For an infinite plane: E = σ/(2ε₀).</p>
+    <p>Superposition principle is crucial here. When multiple charges or distributions are present, the total field is the vector sum of individual fields. A common NEET scenario: two parallel plates with opposite charges (capacitor geometry). You must recognize that fields add inside and cancel outside. This conceptual understanding lets you solve problems without memorizing special cases.</p>
+
+    <div class="highlight-box">
+      <strong>Common NEET Mistake: Forgetting the Direction of E-Field</strong>
+      <p>Students calculate field magnitude correctly but ignore direction. Electric field points away from positive charges and toward negative charges. If two positive charges create fields at a point, you must add them as vectors, not scalars. In the 2024 NEET, one question explicitly tested direction confusion. Always draw arrows. Always resolve into components.</p>
+    </div>
+
+    <h2>Electric Potential and Potential Difference: Energy Perspective</h2>
+    <p>NCERT Chapter 2 (Electrostatic Potential and Capacitance) introduces potential as V = kQ/r for a point charge and defines potential difference as ΔV = V_B − V_A. Here's the insight toppers use: potential is about energy, not force. When you move a charge from point A to point B, the work done depends on potential difference: W = qΔV.</p>
+    <p>This opens up a powerful problem-solving avenue. Instead of calculating forces and using W = F·d, use W = qΔV. It's often faster and less error-prone. For example, if you're asked how much work is needed to bring a charge q from infinity to a distance r from a source charge Q, the direct answer using potential is: W = kqQ/r. No integration needed.</p>
+    <p>Equipotential surfaces are surfaces where potential is constant. The crucial property: electric field is always perpendicular to equipotential surfaces. NEET uses this to ask about field directions relative to given surfaces. For a point charge, equipotentials are concentric spheres. For a uniform field, they're parallel planes.</p>
+    <p>Potential difference in uniform fields deserves special attention. If E is uniform (like between two parallel plates), then V = Ed, where d is distance along the field direction. This relationship appears in 2–3 questions per exam, often paired with capacitor problems.</p>
+
+    <h2>Capacitors: Where Theory Meets Real Devices</h2>
+    <p>NCERT Chapter 2 defines a capacitor as two conductors separated by a dielectric, storing charge. Capacitance is C = Q/V. Seems simple, but NEET tests your ability to apply this across multiple scenarios. The key insight: capacitance depends only on geometry and material, not on Q or V. Doubling the voltage doubles the stored charge, but capacitance stays constant.</p>
+    <p>For a parallel plate capacitor: C = ε₀εᵣA/d. Here, A is plate area, d is separation, εᵣ is relative permittivity (dielectric constant). NEET frequently asks: what happens to capacitance if you change d, or insert a dielectric, or change the voltage? Work through each scenario using this formula. The pattern is: C is inversely proportional to d and directly proportional to A and εᵣ.</p>
+    <p>Energy stored in a capacitor is U = ½QV = ½CV² = ½Q²/C. Know all three forms because NEET switches between them. If you're given C and V, use ½CV². If given Q and C, use ½Q²/C. Recognizing which form to use saves 30 seconds per question.</p>
+    <p>Capacitors in series and parallel are standard NEET fare. Series: 1/C_total = 1/C₁ + 1/C₂ + ... (total capacitance is smaller than any individual capacitor). Parallel: C_total = C₁ + C₂ + ... (add directly). The logic: in series, you add reciprocals; in parallel, you add capacitances. Practice until you use these inst
