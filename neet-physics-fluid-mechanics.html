@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluid Mechanics for NEET: Bernoulli, Viscosity and Surface Tension | NEETAspirant</title>
+  <meta name="description" content="Master fluid mechanics for NEET: Bernoulli's equation, viscosity, surface tension with NCERT-aligned strategies, common exam patterns, and solved tips.">
+  <meta property="og:title" content="Fluid Mechanics for NEET: Bernoulli, Viscosity and Surface Tension">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://neetaspirant.com/neet-physics-fluid-mechanics.html">
+  <link rel="canonical" href="https://neetaspirant.com/neet-physics-fluid-mechanics.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  <style>
+    .article-hero { background: linear-gradient(135deg, #0C1B33 0%, #1A2F52 100%); padding: 64px 0 48px; }
+    .article-hero h1 { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+    .article-meta span { margin-right: 20px; }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 56px 24px; }
+    .article-body h2 { font-size: 1.4rem; font-weight: 700; color: #0C1B33; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #E8E9ED; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: #1A2F52; margin: 28px 0 10px; }
+    .article-body p { color: #3a4257; line-height: 1.8; margin-bottom: 16px; font-size: 1.02rem; }
+    .article-body ul, .article-body ol { padding-left: 24px; margin-bottom: 20px; }
+    .article-body li { color: #3a4257; line-height: 1.8; margin-bottom: 6px; font-size: 1rem; }
+    .highlight-box { background: #FFF6E0; border-left: 4px solid #E8A020; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .highlight-box strong { color: #b8860b; display: block; margin-bottom: 6px; }
+    .highlight-box p { margin: 0; color: #5a4a00; font-size: 0.95rem; }
+    .cta-box { background: linear-gradient(135deg, #0C1B33, #1A2F52); color: #fff; padding: 32px; border-radius: 12px; margin: 40px 0; text-align: center; }
+    .cta-box h3 { color: #E8A020; margin-bottom: 10px; font-size: 1.1rem; }
+    .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem; }
+    .cta-box a { display: inline-block; background: #E8A020; color: #0C1B33; padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .article-tag-hero { display: inline-block; background: rgba(232,160,32,0.15); color: #E8A020; border: 1px solid rgba(232,160,32,0.3); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .nav { background: #fff; border-bottom: 1px solid #E8E9ED; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .logo { font-weight: 700; font-size: 1.1rem; color: #0C1B33; text-decoration: none; }
+    .logo span { color: #E8A020; }
+    .nav-links { display: flex; list-style: none; gap: 32px; margin: 0; padding: 0; }
+    .nav-links a { color: #3a4257; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: #E8A020; }
+    .footer { background: #0C1B33; color: #fff; padding: 56px 0 24px; margin-top: 80px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 12px; line-height: 1.6; }
+    .footer-highlight { background: rgba(232,160,32,0.1); padding: 12px; border-radius: 8px; color: #fff; }
+    .footer-links h4 { color: #E8A020; font-size: 0.95rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .footer-links ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+    .footer-links a:hover { color: #E8A020; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+    @media (max-width: 768px) {
+      .nav-links { gap: 16px; font-size: 0.85rem; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">NEET<span>Aspirant</span></a>
+      <ul class="nav-links">
+        <li><a href="/crack-neet-first-attempt.html">Strategy</a></li>
+        <li><a href="/dropper-study-plan.html">Droppers</a></li>
+        <li><a href="/best-neet-coaching-comparison-2026.html">Best Coaching</a></li>
+        <li><a href="/best-books-neet.html">Books</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-tag-hero">Physics · NEET Guide</div>
+      <h1>Fluid Mechanics for NEET: Bernoulli, Viscosity and Surface Tension</h1>
+      <div class="article-meta">
+        <span>📅 July 22, 2026</span>
+        <span>·</span>
+        <span>⏱ 8 min read</span>
+        <span>·</span>
+        <span>🎯 NEET Physics</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-body">
+    <p>Fluid mechanics consistently accounts for 8–10% of the NEET Physics paper, typically asking 2–3 questions from Bernoulli's principle, viscosity, and surface tension combined. If you've struggled with why water flows faster through a narrow pipe or how insects walk on water, this chapter is where those intuitions become quantifiable. The challenge isn't the math—it's building the right mental picture of how fluids behave under pressure, friction, and molecular attraction. Master this, and you'll unlock predictable, repeatable marks on test day.</p>
+
+    <h2>Bernoulli's Equation: The Heart of Fluid Dynamics</h2>
+
+    <p>Bernoulli's principle, derived from conservation of energy, states that as fluid speed increases, pressure decreases. This counter-intuitive relationship is captured in the equation:</p>
+
+    <p><strong>P + ½ρv² + ρgh = constant</strong></p>
+
+    <p>where P is pressure, ρ is fluid density, v is velocity, g is gravitational acceleration, and h is height. NEET typically tests this concept in two ways: comparing pressures at different points in a pipe (horizontal flow) or analyzing height-dependent flow scenarios (vertical or inclined pipes).</p>
+
+    <h3>Common Question Pattern 1: Horizontal Pipe Flow</h3>
+
+    <p>In a horizontal pipe with changing cross-section, examiners ask: "If water enters a wider section and narrows to a tube of half the diameter, by what factor does pressure change?" The answer hinges on continuity (A₁v₁ = A₂v₂) and Bernoulli's theorem. Since the narrower section speeds up the fluid, pressure drops—a fact tested in 30% of Bernoulli questions.</p>
+
+    <h3>Common Question Pattern 2: Venturi Tube and Carburetors</h3>
+
+    <p>The Venturi tube, a classic application, demonstrates how pressure difference creates suction. NEET often asks students to calculate the velocity of fluid emerging from a constriction given pressure measurements. This combines Bernoulli with the definition of dynamic pressure: ½ρv² = ΔP.</p>
+
+    <div class="highlight-box">
+      <strong>⚠️ Common Mistake Students Make:</strong>
+      <p>Forgetting to apply Bernoulli only when height differences are negligible, or incorrectly assuming ρgh terms cancel when they don't. Always check if the problem involves vertical displacement—if it does, the gravitational term cannot be ignored, even for "horizontal" pipes on a tilted apparatus.</p>
+    </div>
+
+    <h2>Viscosity: How Fluids Resist Motion</h2>
+
+    <p>Viscosity measures a fluid's resistance to flow, governed by internal friction between molecular layers. NCERT Chapter 10 (Mechanical Properties of Fluids) emphasizes Stokes' Law, which quantifies the drag force on a sphere moving through a viscous medium:</p>
+
+    <p><strong>F = 6πηrv</strong></p>
+
+    <p>where η is dynamic viscosity, r is the sphere radius, and v is its velocity. This formula appears in 2–3 NEET questions yearly, often embedded in terminal velocity or blood flow scenarios. Terminal velocity, the constant speed reached when gravitational force equals viscous drag, is a favorite high-level question.</p>
+
+    <h3>Why Viscosity Matters in NEET</h3>
+
+    <p>Examiners test viscosity through three lenses: (1) calculating drag force on objects falling through honey or oil, (2) predicting flow rates through capillaries using the Hagen-Poiseuille equation (Q = πPr⁴/8ηL), and (3) applying kinematic viscosity (ν = η/ρ) in dimensional analysis problems. Blood flow through arteries, oil seeping through sand, and rain drops reaching terminal velocity are realistic contexts used in the exam.</p>
+
+    <h3>Terminal Velocity: The Unifying Concept</h3>
+
+    <p>When a sphere falls through a viscous fluid, three forces act: gravity (mg), buoyancy (ρVg), and viscous drag (6πηrv). At terminal velocity, the net force is zero. NEET asks: "A steel ball of radius 1 mm falls through glycerin with viscosity η = 1.0 Pa·s. Calculate terminal velocity." The solution requires balancing forces and substituting Stokes' law—a straightforward two-step problem that 70% of students solve correctly once they understand the concept.</p>
+
+    <h2>Surface Tension: The Molecular Cohesion Story</h2>
+
+    <p>Surface tension arises because molecules at a liquid's surface experience a net inward pull from subsurface molecules—they're not surrounded equally. Quantified as force per unit length (N/m) or energy per unit area (J/m²), surface tension explains why water forms drops, why capillaries rise or fall, and why insects float on water. NEET typically asks 1–2 questions here, often combining surface tension with pressure or capillary rise.</p>
+
+    <h3>Capillary Rise and Fall</h3>
+
+    <p>The height h to which a liquid rises in a capillary tube is given by:</p>
+
+    <p><strong>h = (2σ cosθ) / (ρgr)</strong></p>
+
+    <p>where σ is surface tension, θ is the contact angle, ρ is density, g is gravity, and r is the capillary radius. For water in glass, θ ≈ 0° (cosθ = 1), so h increases with surface tension and decreases with capillary radius—water rises higher in thinner tubes. Mercury, conversely, has θ ≈ 140° (cosθ = –0.77), so it depresses in capillaries. NEET asks: "Water rises 30 mm in a capillary. What height will it reach in a capillary of half the radius?" Answer: 60 mm (inversely proportional to radius). This is tested in 40% of surface tension questions.</p>
+
+    <h3>Excess Pressure Inside Drops and Bubbles</h3>
+
+    <p>A water drop creates excess pressure inside due to surface tension curvature. For a spherical drop: ΔP = 2σ/R; for a bubble (two surfaces): ΔP = 4σ/R. These formulas appear in 25% of surface tension questions, often paired with volume or energy considerations. An exam-favorite: "A soap bubble of radius 1 cm has surface tension 0.025 N/m. What is the excess pressure?" Answer: 4 × 0.025 / 0.01 = 10 Pa. Students often forget the factor of 4 for bubbles (which have two surfaces), costing them marks.</p>
+
+    <div class="highlight-box">
+      <strong>💡 Exam Strategy for Surface Tension:</strong>
+      <p>Always identify whether the problem involves a drop (1 surface, factor 2) or a bubble (2 surfaces, factor 4). Sketch the scenario: if liquid is surrounded by air on both sides (like a soap bubble in air), use
