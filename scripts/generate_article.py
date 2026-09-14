@@ -10,6 +10,9 @@ import os
 import sys
 from datetime import datetime
 import re
+import random
+
+AUTHORS = ["Ananya Sharma", "Rohan Verma", "Priya Nair", "Arjun Mehta", "Sneha Iyer", "Karan Malhotra", "Divya Reddy", "Aditya Joshi"]
 
 # 30+ topic rotation — cycles through by day of year
 TOPICS = [
@@ -48,6 +51,31 @@ TOPICS = [
     {"slug": "neet-biology-kingdoms-overview", "title": "Five Kingdoms Classification for NEET: Whittaker's System Explained", "subject": "Biology"},
     {"slug": "neet-physics-semiconductors", "title": "Semiconductors for NEET: Diodes, Transistors and Logic Gates", "subject": "Physics"},
     {"slug": "neet-dropper-strategy-2027", "title": "NEET Dropper Strategy 2027: How to Use Your Extra Year to Score 650+", "subject": "Strategy"},
+    {"slug": "neet-biology-molecular-basis-inheritance", "title": "Molecular Basis of Inheritance for NEET: DNA, RNA and Gene Expression Explained", "subject": "Biology"},
+    {"slug": "neet-biology-body-fluids-circulation", "title": "Body Fluids and Circulation for NEET: Blood, Lymph and the Cardiac Cycle", "subject": "Biology"},
+    {"slug": "neet-biology-excretory-products", "title": "Excretory Products for NEET: Kidney Function and Osmoregulation Simplified", "subject": "Biology"},
+    {"slug": "neet-biology-neural-control", "title": "Neural Control and Coordination for NEET: The Nervous System Made Clear", "subject": "Biology"},
+    {"slug": "neet-biology-chemical-coordination", "title": "Chemical Coordination for NEET: Endocrine Glands and Hormones Explained", "subject": "Biology"},
+    {"slug": "neet-biology-breathing-exchange-gases", "title": "Breathing and Exchange of Gases for NEET: Respiratory System Chapter Guide", "subject": "Biology"},
+    {"slug": "neet-biology-microbes-human-welfare", "title": "Microbes in Human Welfare for NEET: A High-Yield NCERT Chapter", "subject": "Biology"},
+    {"slug": "neet-biology-health-disease-immunity", "title": "Human Health and Disease for NEET: Immunity, Pathogens and Vaccines", "subject": "Biology"},
+    {"slug": "neet-biology-organisms-populations", "title": "Organisms and Populations for NEET: Ecology Concepts You Cannot Skip", "subject": "Biology"},
+    {"slug": "neet-biology-biodiversity-conservation", "title": "Biodiversity and Conservation for NEET: Key Terms and Exam Patterns", "subject": "Biology"},
+    {"slug": "neet-physics-units-measurements", "title": "Units and Measurements for NEET: The Chapter Everyone Underestimates", "subject": "Physics"},
+    {"slug": "neet-physics-laws-of-motion", "title": "Laws of Motion for NEET: Newton's Laws and Common Numerical Traps", "subject": "Physics"},
+    {"slug": "neet-physics-work-energy-power", "title": "Work, Energy and Power for NEET: Formulas and Frequently Asked Questions", "subject": "Physics"},
+    {"slug": "neet-physics-gravitation", "title": "Gravitation for NEET: Kepler's Laws and Satellite Motion Explained", "subject": "Physics"},
+    {"slug": "neet-physics-oscillations", "title": "Oscillations for NEET: SHM Concepts That Show Up Every Year", "subject": "Physics"},
+    {"slug": "neet-physics-electromagnetic-induction", "title": "Electromagnetic Induction for NEET: Faraday's Laws Made Simple", "subject": "Physics"},
+    {"slug": "neet-physics-alternating-current", "title": "Alternating Current for NEET: RMS Values and Circuit Analysis", "subject": "Physics"},
+    {"slug": "neet-physics-dual-nature-matter", "title": "Dual Nature of Matter and Radiation for NEET: Photoelectric Effect Deep Dive", "subject": "Physics"},
+    {"slug": "neet-chemistry-mole-concept", "title": "Mole Concept for NEET: The Foundation Chapter Most Students Rush Through", "subject": "Chemistry"},
+    {"slug": "neet-chemistry-structure-of-atom", "title": "Structure of Atom for NEET: Quantum Numbers and Electronic Configuration", "subject": "Chemistry"},
+    {"slug": "neet-chemistry-periodic-classification", "title": "Periodic Classification for NEET: Trends You Must Memorize Correctly", "subject": "Chemistry"},
+    {"slug": "neet-chemistry-bonding-molecular-structure", "title": "Chemical Bonding for NEET: VSEPR Theory and Hybridization Explained", "subject": "Chemistry"},
+    {"slug": "neet-chemistry-redox-reactions", "title": "Redox Reactions for NEET: Balancing Equations Without Confusion", "subject": "Chemistry"},
+    {"slug": "neet-chemistry-aldehydes-ketones", "title": "Aldehydes, Ketones and Carboxylic Acids for NEET: Reaction Mechanisms Simplified", "subject": "Chemistry"},
+    {"slug": "neet-exam-day-strategy-checklist", "title": "NEET Exam Day Checklist: What Toppers Do Differently on the Final Day", "subject": "Strategy"},
 ]
 
 
@@ -60,6 +88,7 @@ def get_today_topic():
 def generate_article_html(topic: dict) -> str:
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     today = datetime.now().strftime("%B %d, %Y")
+    author = random.choice(AUTHORS)
 
     prompt = f"""Write a complete, standalone HTML article page for neetaspirant.com.
 
@@ -125,6 +154,8 @@ Use EXACTLY this HTML structure (fill in all [PLACEHOLDERS]):
       <div class="article-tag-hero">{topic['subject']} · NEET Guide</div>
       <h1>{topic['title']}</h1>
       <div class="article-meta">
+        <span>By <a href="https://neet.padhle.in" style="color:#E8A020;text-decoration:none;font-weight:600;">{author}</a></span>
+        <span>·</span>
         <span>📅 {today}</span>
         <span>·</span>
         <span>⏱ 8 min read</span>
