@@ -12,6 +12,12 @@ from datetime import datetime
 import re
 import random
 
+sys.path.insert(0, os.path.dirname(__file__))
+import seo_utils as su
+
+DOMAIN = "neetaspirant.com"
+SITE_NAME = "NEETAspirant"
+
 AUTHORS = ["Ananya Sharma", "Rohan Verma", "Priya Nair", "Arjun Mehta", "Sneha Iyer", "Karan Malhotra", "Divya Reddy", "Aditya Joshi"]
 
 # 30+ topic rotation — cycles through by day of year
@@ -238,33 +244,6 @@ Return ONLY the complete HTML. No explanation, no markdown fences, no commentary
     return html.strip()
 
 
-def update_sitemap(slug: str, today_str: str):
-    """Append the new article URL to sitemap.xml if not already present."""
-    path = "sitemap.xml"
-    if not os.path.exists(path):
-        print("sitemap.xml not found, skipping update.")
-        return
-
-    with open(path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    if f"/{slug}.html" in content:
-        print(f"sitemap.xml already contains {slug}, skipping.")
-        return
-
-    entry = f"""  <url>
-    <loc>https://neetaspirant.com/{slug}.html</loc>
-    <lastmod>{today_str}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>"""
-
-    content = content.replace("</urlset>", f"{entry}\n</urlset>")
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"✅ sitemap.xml updated with {slug}")
-
-
 def main():
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
@@ -286,12 +265,21 @@ def main():
     print("🤖 Calling Claude API...")
     html = generate_article_html(topic)
 
+    url = f"https://{DOMAIN}/{filename}"
+    title = topic["title"]
+    description = su.extract_description(html, title)
+
+    tagged_html = su.publish_article(
+        article_html=html, site_name=SITE_NAME, domain=DOMAIN,
+        canonical_url=url, title=title, description=description,
+        date_iso=today_str, category=topic["subject"],
+    )
+
     with open(filename, "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(tagged_html)
 
-    print(f"✅ Saved {filename} ({len(html):,} bytes)")
-
-    update_sitemap(topic["slug"], today_str)
+    print(f"✅ Saved {filename} ({len(tagged_html):,} bytes)")
+    print("✅ SEO tags injected, manifest/sitemap/homepage/archive rebuilt")
     print("🎉 Done!")
 
 
