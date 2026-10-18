@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternating Current for NEET: RMS Values and Circuit Analysis | NEETAspirant</title>
+  <meta name="description" content="Master alternating current, RMS values, and AC circuit analysis for NEET Physics. Learn key formulas, common exam patterns, and problem-solving strategies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+  <style>
+    .article-hero { background: linear-gradient(135deg, #0C1B33 0%, #1A2F52 100%); padding: 64px 0 48px; }
+    .article-hero h1 { color: #fff; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.25; margin-bottom: 16px; }
+    .article-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+    .article-meta span { margin-right: 20px; }
+    .article-body { max-width: 780px; margin: 0 auto; padding: 56px 24px; }
+    .article-body h2 { font-size: 1.4rem; font-weight: 700; color: #0C1B33; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #E8E9ED; }
+    .article-body h3 { font-size: 1.1rem; font-weight: 600; color: #1A2F52; margin: 28px 0 10px; }
+    .article-body p { color: #3a4257; line-height: 1.8; margin-bottom: 16px; font-size: 1.02rem; }
+    .article-body ul, .article-body ol { padding-left: 24px; margin-bottom: 20px; }
+    .article-body li { color: #3a4257; line-height: 1.8; margin-bottom: 6px; font-size: 1rem; }
+    .highlight-box { background: #FFF6E0; border-left: 4px solid #E8A020; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; }
+    .highlight-box strong { color: #b8860b; display: block; margin-bottom: 6px; }
+    .highlight-box p { margin: 0; color: #5a4a00; font-size: 0.95rem; }
+    .cta-box { background: linear-gradient(135deg, #0C1B33, #1A2F52); color: #fff; padding: 32px; border-radius: 12px; margin: 40px 0; text-align: center; }
+    .cta-box h3 { color: #E8A020; margin-bottom: 10px; font-size: 1.1rem; }
+    .cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; font-size: 0.95rem; }
+    .cta-box a { display: inline-block; background: #E8A020; color: #0C1B33; padding: 12px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .article-tag-hero { display: inline-block; background: rgba(232,160,32,0.15); color: #E8A020; border: 1px solid rgba(232,160,32,0.3); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 20px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .nav { background: #fff; border-bottom: 1px solid #E8E9ED; padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: #0C1B33; text-decoration: none; }
+    .logo span { color: #E8A020; }
+    .nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; color: #3a4257; font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: #E8A020; }
+    .footer { background: #0C1B33; color: #fff; padding: 56px 24px 24px; margin-top: 56px; }
+    .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; max-width: 1200px; margin: 0 auto 32px; }
+    .footer-brand p { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 12px; }
+    .footer-highlight { background: rgba(232,160,32,0.1); padding: 12px; border-radius: 6px; border-left: 3px solid #E8A020; font-size: 0.9rem; margin-top: 16px; }
+    .footer-links h4 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: #E8A020; }
+    .footer-links ul { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+    .footer-links a:hover { color: #E8A020; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; max-width: 1200px; margin: 0 auto; }
+    @media (max-width: 768px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+<link rel="canonical" href="https://neetaspirant.com/neet-physics-alternating-current.html">
+<meta property="og:title" content="Alternating Current for NEET: RMS Values and Circuit Analysis">
+<meta property="og:description" content="Master alternating current, RMS values, and AC circuit analysis for NEET Physics. Learn key formulas, common exam patterns, and problem-solving strategies.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://neetaspirant.com/neet-physics-alternating-current.html">
+<meta property="og:site_name" content="NEETAspirant">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Alternating Current for NEET: RMS Values and Circuit Analysis">
+<meta name="twitter:description" content="Master alternating current, RMS values, and AC circuit analysis for NEET Physics. Learn key formulas, common exam patterns, and problem-solving strategies.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Alternating Current for NEET: RMS Values and Circuit Analysis", "description": "Master alternating current, RMS values, and AC circuit analysis for NEET Physics. Learn key formulas, common exam patterns, and problem-solving strategies.", "datePublished": "2026-10-18", "dateModified": "2026-10-18", "author": {"@type": "Organization", "name": "NEETAspirant"}, "publisher": {"@type": "Organization", "name": "NEETAspirant"}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://neetaspirant.com/neet-physics-alternating-current.html"}, "articleSection": "Physics"}</script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="logo">NEET<span>Aspirant</span></a>
+      <ul class="nav-links">
+        <li><a href="/crack-neet-first-attempt.html">Strategy</a></li>
+        <li><a href="/dropper-study-plan.html">Droppers</a></li>
+        <li><a href="/best-neet-coaching-comparison-2026.html">Best Coaching</a></li>
+        <li><a href="/best-books-neet.html">Books</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="article-hero">
+    <div class="container">
+      <div class="article-tag-hero">Physics · NEET Guide</div>
+      <h1>Alternating Current for NEET: RMS Values and Circuit Analysis</h1>
+      <div class="article-meta">
+        <span>By <a href="https://neet.padhle.in" style="color:#E8A020;text-decoration:none;font-weight:600;">Divya Reddy</a></span>
+        <span>·</span>
+        <span>📅 October 18, 2026</span>
+        <span>·</span>
+        <span>⏱ 8 min read</span>
+        <span>·</span>
+        <span>🎯 NEET Physics</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="article-body">
+    <p>Alternating current (AC) is one of the most frequently tested topics in NEET Physics, appearing in 2-3 questions per year with roughly 6-9 marks of weightage. Most students struggle not because they lack intelligence, but because they confuse peak values with RMS values, misunderstand power factor calculations, or fail to visualize phase relationships in circuits. This guide breaks down AC theory the way toppers actually understand it—with clear fundamentals, practical exam strategies, and the exact patterns NEET examiners follow.</p>
+
+    <h2>Understanding RMS Values: Why Toppers Never Miss These Questions</h2>
+    
+    <p>The root cause of AC confusion is treating alternating current the same way as DC. When current oscillates sinusoidally, its instantaneous value changes constantly, so we need a single representative value that matches the power-dissipating effect of an equivalent DC current. This is the RMS (Root Mean Square) value, covered in NCERT Physics Class 12, Chapter 7 (Alternating Current).</p>
+
+    <p>For a sinusoidal AC signal with peak value (amplitude) I₀, the RMS current is I_rms = I₀/√2 ≈ 0.707 × I₀. Similarly, for voltage, V_rms = V₀/√2. This factor of 1/√2 appears in nearly every AC problem NEET asks, yet many students derive it incorrectly or forget it under exam pressure.</p>
+
+    <h3>The Mathematical Foundation</h3>
+    <p>The RMS value is derived from I_rms = √[(1/T)∫₀ᵀ I² dt]. For a sinusoidal current i(t) = I₀ sin(ωt), when you integrate i² over one complete period and divide by T, you get I₀²/2. Taking the square root gives I₀/√2. Examiners expect you to either know this formula or be able to apply it directly without re-deriving it in the exam.</p>
+
+    <p>Why does this matter for NEET? Because power dissipation always uses RMS values: P = I²_rms × R = V²_rms / R. If you use peak values instead, your answer will be wrong by exactly a factor of 2—a common trap answer that exam setters deliberately include.</p>
+
+    <div class="highlight-box">
+      <strong>⚡ Critical Tip: Peak vs RMS Confusion</strong>
+      <p>When a problem states "voltage is 230V" (as in household AC), this is always the RMS value, not the peak. Peak voltage is 230 × √2 ≈ 325V. NEET frequently tricks students by giving RMS values in the problem statement and then asking for peak values in the solution, or vice versa. Read carefully, and always convert to the same unit before calculating.</p>
+    </div>
+
+    <h2>AC Circuit Analysis: Resistive, Inductive, and Capacitive Components</h2>
+    
+    <p>NEET's AC questions test your ability to analyze pure R, L, and C circuits individually, then combine them in series (RLC circuits). The key insight is that while resistors respond identically to DC and AC (Ohm's law holds with RMS values), inductors and capacitors introduce phase shifts that create impedance—a quantity more complex than simple resistance.</p>
+
+    <h3>Pure Resistive Circuits (R only)</h3>
+    <p>In a resistor, current and voltage are always in phase. If V = V₀ sin(ωt), then I = (V₀/R) sin(ωt). No phase difference, no complications. Power dissipated is P = V_rms × I_rms = I²_rms × R. NEET rarely asks pure R questions because they're too straightforward—most AC questions involve L or C elements.</p>
+
+    <h3>Pure Inductive Circuits (L only)</h3>
+    <p>In an inductor, voltage leads current by 90°. This is expressed as V = V₀ sin(ωt) while I = I₀ sin(ωt - π/2). The inductive reactance is X_L = ωL = 2πfL, measured in ohms. The key formula students forget: In a pure inductor, impedance Z = X_L, and no real power is dissipated—all power oscillates between the source and the magnetic field. Average power P_avg = 0. This seems counterintuitive but is tested regularly in NEET.</p>
+
+    <h3>Pure Capacitive Circuits (C only)</h3>
+    <p>Capacitors are the opposite of inductors—current leads voltage by 90°. Capacitive reactance is X_C = 1/(ωC). Like inductors, ideal capacitors dissipate zero average power. The energy oscillates between the electric field and the source. Understanding this phase relationship is crucial because many NEET problems present a capacitor in series with a resistor and ask for the phase angle or power factor.</p>
+
+    <h2>RLC Series Circuits: The Core Exam Pattern</h2>
+    
+    <p>NEET's most common AC pattern is the RLC series circuit. You're given R, L, C, and frequency f (or angular frequency ω), and asked to find impedance, current amplitude, phase angle, resonant frequency, or power dissipated. These problems test three core skills: calculating reactances, finding net impedance, and interpreting the resulting phase shift.</p>
+
+    <h3>Impedance Calculation</h3>
+    <p>Total impedance in a series RLC circuit is Z = √[R² + (X_L - X_C)²], where X_L = ωL and X_C = 1/(ωC). The magnitude of impedance determines the amplitude of current: I₀ = V₀/Z. This formula appears in every second AC problem in NEET papers—memorize it, don't derive it during the exam.</p>
+
+    <h3>Phase Angle and Power Factor</h3>
+    <p>The phase angle φ between voltage and current is given by tan(φ) = (X_L - X_C)/R. When X_L > X_C, the circuit is inductive and current lags voltage. When X_C > X_L, it's capacitive and current leads. At resonance, X_L = X_C, so φ = 0 and impedance equals R—the circuit behaves purely resistively. Resonant frequency is f₀ = 1/(2π√LC). Power dissipated is P = I²_rms × R × cos(φ), where cos(φ) is the power factor. A purely resistive circuit has power factor = 1; purely reactive circuits have power factor = 0.</p>
+
+    <div class="highlight-box">
+      <strong>🎯 Common NEET Trap:
