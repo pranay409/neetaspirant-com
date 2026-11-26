@@ -14,6 +14,7 @@ import random
 
 sys.path.insert(0, os.path.dirname(__file__))
 import seo_utils as su
+import topic_picker
 
 DOMAIN = "neetaspirant.com"
 SITE_NAME = "NEETAspirant"
@@ -86,9 +87,7 @@ TOPICS = [
 
 
 def get_today_topic():
-    """Pick topic based on day of year — ensures rotation without repeats in a month."""
-    day = datetime.now().timetuple().tm_yday
-    return TOPICS[day % len(TOPICS)]
+    return topic_picker.pick_topic(TOPICS, SITE_NAME, DOMAIN)
 
 
 def generate_article_html(topic: dict) -> str:
