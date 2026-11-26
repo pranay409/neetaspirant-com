@@ -15,6 +15,7 @@ import random
 sys.path.insert(0, os.path.dirname(__file__))
 import seo_utils as su
 import topic_picker
+import article_guard
 
 DOMAIN = "neetaspirant.com"
 SITE_NAME = "NEETAspirant"
@@ -224,7 +225,7 @@ Use EXACTLY this HTML structure (fill in all [PLACEHOLDERS]):
 
 Return ONLY the complete HTML. No explanation, no markdown fences, no commentary."""
 
-    message = client.messages.create(
+    message = article_guard.create(client, 
         model="claude-haiku-4-5-20251001",
         max_tokens=4096,
         messages=[{"role": "user", "content": prompt}]
