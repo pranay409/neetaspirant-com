@@ -13,6 +13,7 @@ NeetAspirant.com is an independent NEET preparation resource for students appear
 
 ## All Articles
 
+- [Amino Acids and Peptides for NEET: Structure, Properties and Questions](https://neetaspirant.com/amino-acids-and-peptides-for-neet-structure-properties-and-questions.html): Master amino acids & peptides for NEET Chemistry. Learn structures, properties, zwitterions, peptide bonds, and practice high-yield exam questions with solutions.
 - [S-Block Elements for NEET: Alkali and Alkaline Earth Metals](https://neetaspirant.com/s-block-elements-for-neet-alkali-and-alkaline-earth-metals.html): Master S-block elements (alkali & alkaline earth metals) for NEET chemistry. NCERT-grounded, with exam patterns, quick recall tricks & common mistakes to avoid.
 - [Halogens and Noble Gases for NEET: Reactivity Trends and Exam Patterns](https://neetaspirant.com/halogens-and-noble-gases-for-neet-reactivity-trends-and-exam-patterns.html): Master halogen reactivity trends and noble gas inertness for NEET. NCERT-based patterns, 3-4 mark questions, and proven exam strategies from toppers.
 - [NEET Exam Day Checklist: What Toppers Do Differently on the Final Day](https://neetaspirant.com/neet-exam-day-strategy-checklist.html): NEET exam day strategies used by toppers. Complete checklist covering mental prep, time management, and critical exam day tactics for scoring 650+.
