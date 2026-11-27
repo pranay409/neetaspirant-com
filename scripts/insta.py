@@ -164,9 +164,45 @@ def strip_html(cfg):
             '<a href="/ig/" style="color:#C2410C;font-weight:600;text-decoration:none">Reel notes</a></span></div>')
 
 
+TOP_MARKER = "<!-- padhle-insta-top -->"
+NAV_MARKER = "<!-- padhle-insta-nav -->"
+
+
+def topbar_html(cfg):
+    h = cfg["handle"]
+    return (TOP_MARKER + '<div style="background:linear-gradient(90deg,#962FBF,#D62976,#FA7E1E);color:#fff;'
+            'font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px;line-height:1.4;'
+            'text-align:center;padding:8px 12px">'
+            f'<a href="https://www.instagram.com/{h}/" rel="me" style="color:#fff;text-decoration:none;font-weight:600">'
+            f'&#128247; Follow @{H.escape(h)} on Instagram</a>'
+            '<span style="opacity:.7"> &nbsp;·&nbsp; </span>'
+            '<a href="/ig/" style="color:#fff;text-decoration:underline">Reel notes</a></div>')
+
+
+def add_header(html_text, cfg=None):
+    """Instagram bar at the very top of the page + an Instagram item in the menu if there is one."""
+    cfg = cfg or config()
+    if not cfg:
+        return html_text
+    if TOP_MARKER not in html_text:
+        m = re.search(r"<body[^>]*>", html_text, re.I)
+        if m:
+            html_text = html_text[:m.end()] + "\n" + topbar_html(cfg) + html_text[m.end():]
+    if NAV_MARKER not in html_text:
+        m = re.search(r'(<ul class="nav-links"[^>]*>)(.*?)(</ul>)', html_text, re.S)
+        if m:
+            item = (f'{NAV_MARKER}<li><a href="https://www.instagram.com/{cfg["handle"]}/" rel="me" '
+                    'target="_blank">Instagram</a></li>')
+            html_text = html_text[:m.end(2)] + item + html_text[m.end(2):]
+    return html_text
+
+
 def add_strip(html_text, cfg=None):
     cfg = cfg or config()
-    if not cfg or STRIP_MARKER in html_text:
+    if not cfg:
+        return html_text
+    html_text = add_header(html_text, cfg)
+    if STRIP_MARKER in html_text:
         return html_text
     low = html_text.lower()
     for anchor in ("<footer", "<!-- padhle-tracker -->", "</body>"):
